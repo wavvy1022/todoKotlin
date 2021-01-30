@@ -1,4 +1,4 @@
-package blog
+package com.example.todo
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping
 class HtmlController {
     @GetMapping("/")
     fun blog(model: Model): String {
-        model.addAttribute("title", "test")
-        println("hi")
+        model["title"] = "Blog"
+        //model.addAttribute("title", "test")
+        //println("hi")
         return "blog"
     }
 }
