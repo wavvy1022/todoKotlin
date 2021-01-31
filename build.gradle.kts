@@ -3,18 +3,22 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.3.8.RELEASE"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("org.jetbrains.kotlin.plugin.noarg") version "1.3.72"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
 	kotlin("plugin.jpa") version "1.3.72"
+	kotlin("kapt") version "1.3.72"
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
+var kotlinVersion = "1.4.21"
 
 repositories {
 	mavenCentral()
 }
+
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -28,6 +32,11 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+	// For markdown convert ( From atlassian(jira/confluence) library )
+	implementation("com.atlassian.commonmark:commonmark:0.11.0")
+	implementation("com.atlassian.commonmark:commonmark-ext-autolink:0.11.0")
+	// For use user defined configuration kotlin file
+	kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<KotlinCompile> {
