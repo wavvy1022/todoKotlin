@@ -1,11 +1,43 @@
 package com.example.todo
 
+import com.samskivert.mustache.Mustache
+import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
-
-@SpringBootApplication
-class TodoApplication
+import org.springframework.context.annotation.Bean
+import com.example.todo.Model.*;
 
 fun main(args: Array<String>) {
-	runApplication<TodoApplication>(*args)
+    runApplication<TodoApplication>(*args)
+}
+
+@SpringBootApplication
+@EnableConfigurationProperties(BlogProperties::class)
+class TodoApplication{
+
+
+    @Bean
+    fun mustacheCompiler( loader: Mustache.TemplateLoader? )= Mustache.compiler().escapeHTML(false).withLoader(loader)
+
+    @Bean
+    fun databaseInitializer( userRepository: UserRepository, articleRepository: ArticleRepository ) = CommandLineRunner{
+        val smaldini = Model.User("smaldini", "Stephane", "Maldini")
+
+        articleRepository.save(Model.Article(
+                "Reactor Bismuth is out",
+                "Loem ip sume ",
+                "dolor **sit** amet https://projectreactor.io/",
+                smaldini,
+                1
+        ))
+
+        articleRepository.save(Model.Article(
+                "Reactor Adfefgeg wefewf",
+                "Loemue ipsum2",
+                "dolor **sit** amet https://projectreator.id/",
+                smaldini,
+                2
+        ))
+    }
 }
