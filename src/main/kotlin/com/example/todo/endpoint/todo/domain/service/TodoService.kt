@@ -13,4 +13,8 @@ class TodoService(
         return todoRepositoryImpl.getTodoList()
     }
 
+    fun insertTodo(todoDto: TodoDto){
+        todoRepositoryImpl.insertTodo(todoDto)
+    }
+
 }

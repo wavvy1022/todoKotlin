@@ -15,4 +15,8 @@ class TodoRepositoryImpl :TodoRepository{
         return todoMapper.getTodoList()
     }
 
+    override fun insertTodo(todoDto: TodoDto) {
+        todoMapper.insertTodo(todoDto)
+    }
+
 }

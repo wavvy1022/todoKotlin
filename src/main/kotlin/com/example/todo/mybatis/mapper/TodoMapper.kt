@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper
 @Mapper
 interface TodoMapper {
     fun getTodoList():MutableList<TodoDto>
+
+    fun insertTodo(todoDto: TodoDto)
 }
