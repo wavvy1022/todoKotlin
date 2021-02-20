@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
 
-@CrossOrigin("http://localhost:3000", allowCredentials = "true")
+@CrossOrigin("http://172.30.1.26:3000", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/todo")
 class TodoApiController(
