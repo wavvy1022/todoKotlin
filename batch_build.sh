@@ -4,6 +4,7 @@
 pushd "src\main\resources\static"
 DEST=`pwd`
 echo $DEST
+popd
 # Frontend resources build
 pushd reactApp/my-app
 
