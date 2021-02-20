@@ -7,7 +7,7 @@
     ]]></select>
 
     <insert id="insertTodo" parameterType="com.example.todo.endpoint.todo.domain.model.TodoDto"><![CDATA[
-        INSERT INTO todo (schedule, title, description, create_at, update_at, index)
-        VALUES (#{schedule},#{title},#{description},current_timestamp,null,(SELECT uuid_in(md5(random()::text || now()::text)::cstring)))
+            INSERT INTO todo
+            values(nextval('seq_id'),#{title},false,current_timestamp,null)
     ]]></insert>
 </mapper>
