@@ -3,7 +3,7 @@ import axios from 'axios'
 export default function customAxios( url, callback ){
     axios(
         {
-            url : `/todo/api${url}`,
+            url : `/api/todo${url}`,
             method : 'post',
 
             // 크로스도메인 이슈 제거를 위한 설정
