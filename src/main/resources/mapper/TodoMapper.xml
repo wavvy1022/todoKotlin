@@ -10,4 +10,9 @@
             INSERT INTO todo
             values(nextval('seq_id'),#{title},false,current_timestamp,null)
     ]]></insert>
+
+    <delete id="deleteTodo" parameterType="Int"><![CDATA[
+            DELETE FROM todo
+            WHERE index = #{index}
+    ]]></delete>
 </mapper>

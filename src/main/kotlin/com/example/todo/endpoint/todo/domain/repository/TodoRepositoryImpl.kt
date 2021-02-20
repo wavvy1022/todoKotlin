@@ -19,4 +19,8 @@ class TodoRepositoryImpl :TodoRepository{
         todoMapper.insertTodo(todoDto)
     }
 
+    override fun deleteTodo(index: Int) {
+        todoMapper.deleteTodo(index)
+    }
+
 }

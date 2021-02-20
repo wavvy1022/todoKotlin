@@ -8,4 +8,6 @@ interface TodoMapper {
     fun getTodoList():MutableList<TodoDto>
 
     fun insertTodo(todoDto: TodoDto)
+
+    fun deleteTodo(index:Int)
 }
