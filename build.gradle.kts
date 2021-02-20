@@ -49,12 +49,6 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 
-
-	// For markdown convert ( From atlassian(jira/confluence) library )
-	implementation("com.atlassian.commonmark:commonmark:0.11.0")
-	implementation("com.atlassian.commonmark:commonmark-ext-autolink:0.11.0")
-	// For use user defined configuration kotlin file
-	kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<KotlinCompile> {
