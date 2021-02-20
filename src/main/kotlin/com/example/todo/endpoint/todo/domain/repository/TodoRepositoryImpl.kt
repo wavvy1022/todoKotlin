@@ -15,16 +15,16 @@ class TodoRepositoryImpl :TodoRepository{
         return todoMapper.getTodoList()
     }
 
-    override fun insertTodo(todoDto: TodoDto) {
-        todoMapper.insertTodo(todoDto)
+    override fun insertTodo(todoDto: TodoDto):Int {
+        return todoMapper.insertTodo(todoDto)
     }
 
-    override fun updateTodo(todoDto: TodoDto) {
-        todoMapper.updateTodo(todoDto)
+    override fun updateTodo(todoDto: TodoDto):Int {
+        return todoMapper.updateTodo(todoDto)
     }
 
-    override fun deleteTodo(index: Int) {
-        todoMapper.deleteTodo(index)
+    override fun deleteTodo(index: Int): Int {
+        return todoMapper.deleteTodo(index)
     }
 
 }

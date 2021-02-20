@@ -13,16 +13,16 @@ class TodoService(
         return todoRepositoryImpl.getTodoList()
     }
 
-    fun insertTodo(todoDto: TodoDto){
-        todoRepositoryImpl.insertTodo(todoDto)
+    fun insertTodo(todoDto: TodoDto):Int {
+        return todoRepositoryImpl.insertTodo(todoDto)
     }
 
-    fun updateTodo(todoDto: TodoDto){
-        todoRepositoryImpl.updateTodo(todoDto)
+    fun updateTodo(todoDto: TodoDto): Int{
+        return todoRepositoryImpl.updateTodo(todoDto)
     }
 
-    fun deleteTodo(index:Int){
-        todoRepositoryImpl.deleteTodo(index)
+    fun deleteTodo(index:Int): Int {
+        return todoRepositoryImpl.deleteTodo(index)
     }
 
 }

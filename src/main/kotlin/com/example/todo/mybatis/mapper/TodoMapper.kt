@@ -7,9 +7,9 @@ import org.apache.ibatis.annotations.Mapper
 interface TodoMapper {
     fun getTodoList():MutableList<TodoDto>
 
-    fun insertTodo(todoDto: TodoDto)
+    fun insertTodo(todoDto: TodoDto):Int
 
-    fun updateTodo(todoDto: TodoDto)
+    fun updateTodo(todoDto: TodoDto):Int
 
-    fun deleteTodo(index:Int)
+    fun deleteTodo(index:Int):Int
 }
