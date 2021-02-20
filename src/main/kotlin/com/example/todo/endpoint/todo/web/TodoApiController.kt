@@ -26,7 +26,7 @@ class TodoApiController(
         return ResponseEntity.ok().build()
     }
 
-    @GetMapping("/ip")
+    @PostMapping("/ip")
     fun getIp( request:HttpServletRequest): ResponseEntity<String>{
         return ResponseEntity.ok(request.remoteAddr)
     }
