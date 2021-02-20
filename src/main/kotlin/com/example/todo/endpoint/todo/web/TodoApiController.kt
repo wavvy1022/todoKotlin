@@ -32,8 +32,16 @@ class TodoApiController(
         return ResponseEntity.ok().build()
     }
 
+    @ApiOperation(value = "todo 수정", notes = "todo 수정 PUT API")
+    @PutMapping("/todo/index/{index}")
+    fun updateTodo(@RequestBody todoDto: TodoDto, @PathVariable index: Int): ResponseEntity<Any>{
+        todoDto.index = index
+        todoService.updateTodo(todoDto)
+        return ResponseEntity.ok().build()
+    }
+
     @ApiOperation(value = "todo 삭제", notes = "todo 삭제 DELETE API")
-    @DeleteMapping("/todo/id/{index}")
+    @DeleteMapping("/todo/index/{index}")
     fun deleteToto(@PathVariable index:Int){
         todoService.deleteTodo(index)
         //todoService.delete()

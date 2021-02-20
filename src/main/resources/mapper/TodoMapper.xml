@@ -11,6 +11,15 @@
             values(nextval('seq_id'),#{title},false,current_timestamp,null)
     ]]></insert>
 
+    <update id="updateTodo" parameterType="com.example.todo.endpoint.todo.domain.model.TodoDto">
+            UPDATE todo
+            SET
+            <if test='title!=null'> title = #{title}, </if>
+            <if test='completeStat!= null'> complete_stat = #{completeStat},</if>
+            updated_at = current_timestamp
+            WHERE index = #{index}
+    </update>
+
     <delete id="deleteTodo" parameterType="Int"><![CDATA[
             DELETE FROM todo
             WHERE index = #{index}

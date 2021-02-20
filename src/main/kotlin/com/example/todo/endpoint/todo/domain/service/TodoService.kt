@@ -17,6 +17,10 @@ class TodoService(
         todoRepositoryImpl.insertTodo(todoDto)
     }
 
+    fun updateTodo(todoDto: TodoDto){
+        todoRepositoryImpl.updateTodo(todoDto)
+    }
+
     fun deleteTodo(index:Int){
         todoRepositoryImpl.deleteTodo(index)
     }

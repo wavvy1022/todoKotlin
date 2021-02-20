@@ -9,5 +9,7 @@ interface TodoMapper {
 
     fun insertTodo(todoDto: TodoDto)
 
+    fun updateTodo(todoDto: TodoDto)
+
     fun deleteTodo(index:Int)
 }

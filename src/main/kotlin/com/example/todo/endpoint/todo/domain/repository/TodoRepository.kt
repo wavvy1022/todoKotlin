@@ -8,5 +8,7 @@ interface TodoRepository {
 
     fun insertTodo(todoDto: TodoDto)
 
+    fun updateTodo(todoDto: TodoDto)
+
     fun deleteTodo(index:Int)
 }
