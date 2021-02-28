@@ -1,0 +1,29 @@
+.todo-list-item{
+
+}
+
+
+.plain      .plain-title, 
+.plain      .edit-btn,
+.edit       .edit-title,
+.edit       .update-btn
+{
+    display : inline-block
+}
+
+.plain    .edit-title,
+.plain    .update-btn,
+.edit     .edit-btn,
+.edit     .delete-btn,
+.edit     .plain-title  
+{
+    display : none
+}
+
+.completed .plain-title{
+    text-decoration:line-through
+}
+
+
+
+

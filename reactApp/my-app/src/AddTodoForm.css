@@ -1,0 +1,19 @@
+.add_todo_form{
+    display: none;
+    
+    background-color : white;
+    color : black;
+    border-radius: 2px;
+}
+
+.add_todo_form.show{
+    display: block;
+}
+
+.row{
+
+}
+
+.row.right{
+    text-align: right;
+}
