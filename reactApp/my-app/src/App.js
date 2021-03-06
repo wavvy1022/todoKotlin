@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import "./App.css"
 // Import custom react component
 import Header from "./Header"
 import TodoList from "./TodoList"
@@ -9,12 +8,10 @@ import TodoList from "./TodoList"
 function App(){
 
   return (
-    <div className = "App">
+    <>
       <Header/>
-      <header className = "App-header">
-        <TodoList/>
-      </header>
-    </div>
+      <TodoList/>
+    </>
   )
 }
 

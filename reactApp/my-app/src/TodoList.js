@@ -22,29 +22,21 @@ function TodoList(){
 
     function onTodoDeleted( index ) {
         
-        let newArr = [];
-        let findIdx = -1
-        console.log( todoList )
-        todoList.forEach( ( todo , idx ) => {
-            if( todo.index == index ){
-                findIdx = idx 
-            }else{
-                newArr.push(todo)
-            }
-        })
-        
-        // 이건 안되고
-        // todoList.splice( findIdx, 1 );
-        // setTodoList( todoList )
-
-        // 아래 두가지는 된다  
-        // setTodoList( newArr )
         setTodoList( todoList.filter( todo => todo.index !== index ))
 
-        // 추측 : 아무래도 바인딩한 객체를 직접 수정하면 binding이 해제되거나 추적이 안되는 것 같다.
-        // useState로 할당받은 바인딩 객체들은 state 수정시 setState로만 바인딩객체를 수정할 수 있는 것 같다.
-        // 자세한건 리액트 구조를 좀 알아야 해석이 가능할듯.
+        /* React가 useState로 관리하는 컴포넌트의 '상태'는 상태객체를 지정하는 변수로 접근하여 수정하면 안된다.
+         setState로 업데이트하는 '상태'값은 변수로 접근하여 수정한 결과가 아닌, 변경된 값이 적용된 '새로운 값', '새로운 객체' 여야한다.
+         ex) 상태로 관리하는 배열을 변수로 접근하여 splice,push 등 배열의 상태를 변경하는 행위를 하면, React가 관리하는 상태와 달라지기 때문에
+             상태가 변경되더라도 DOM이 업데이트 되지 않는다.
+
+        따라서 배열로 등록한 상태값을 변경할 때엔 상태객체에 직접 접근하여 push, splice로 요소를 편집해선 안되며
+        요소를 추가/수정/삭제한 새로운 배열을 생성하여 setState해주어야 함.
         
+        es6는 이러한 작업을 간결하게 표현할 수 있도록 다양한 표현을 지원한다.
+        삭제 : Array.filter( elem => base != elem.value ) , 기준값이 아닌 데이터를 거른 새로운 배열을 생성하여 리턴한다. 즉 대상요소 삭제결과를 반환함.
+        추가 : [ array... , newElem ] , 새로운 배열에 기존배열의 요소를 추가하고 새로운 배열을 맨 마지막에 추가하는 표현이다. 즉 새로운 요소를 추가한 배열을 반환함.
+        수정 : ??  
+        */
     }
 
     function toggleAddTodoForm(){
